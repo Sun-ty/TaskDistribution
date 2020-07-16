@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TaskDistributionApplication {
 
     public static void main(String[] args) {
+        //测试
         SpringApplication.run(TaskDistributionApplication.class, args);
     }
 
