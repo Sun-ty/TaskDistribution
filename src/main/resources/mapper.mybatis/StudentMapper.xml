@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.task.dao.StudentMapper">
+
+    <select id="findAlls" resultType="com.sun.task.entity.Student">
+        SELECT * FROM `student`
+    </select>
+
+    <select id="findAll" resultType="com.sun.task.entity.Student" parameterType="java.lang.Integer">
+        SELECT * FROM `student` WHERE `SNo`=#{SNo}
+    </select>
+    <insert id="save" parameterType="com.sun.task.entity.Student">
+        INSERT INTO `student` VALUES(#{SNo},#{Sname})
+    </insert>
+</mapper>

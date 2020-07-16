@@ -1,0 +1,39 @@
+server:
+  port: 4480
+
+spring:
+  #设置全局日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myschool?serverTimezone=GMT&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 5200
+    #使用 阿里巴巴连接池 Druid
+    type: com.alibaba.druid.pool.DruidDataSource
+    #连接池配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+
+mybatis:
+  mapper-locations:
+    classpath: mapper.mybatis/*.xml
+  type-aliases-package: com.sun.task.entity
+  configuration:
+    map-underscore-to-camel-case: true  #开启驼峰命名
+  config-location:
+    classpath: mapper/mybatis-config.xml
+
